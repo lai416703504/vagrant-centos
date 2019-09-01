@@ -38,8 +38,8 @@ Vagrant.configure("2") do |config|
     # 使用shell脚本进行软件安装和配置
     node.vm.provision "shell" ,inline: <<-SHELL
 
-     yum update
-     yum install -y wget
+      yum update
+      yum install -y wget
       # 修改源
       mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 
@@ -58,7 +58,7 @@ Vagrant.configure("2") do |config|
       sudo sed -i 's+download.docker.com+mirrors.tuna.tsinghua.edu.cn/docker-ce+' /etc/yum.repos.d/docker-ce.repo
 
       sudo yum makecache fast
-      sudo yum install docker-ce
+      sudo yum install -y docker-ce
     SHELL
     end
 
