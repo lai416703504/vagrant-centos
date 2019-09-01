@@ -37,6 +37,9 @@ Vagrant.configure("2") do |config|
 
     # 使用shell脚本进行软件安装和配置
     node.vm.provision "shell" ,inline: <<-SHELL
+
+     yum update
+     yum install -y wget
       # 修改源
       mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 
